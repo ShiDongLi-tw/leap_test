@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Motion</title>
+    <style>
+        .empty {
+            border-color: red；
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model被称为vue的指令 -->
+        <input type="text" 　class='empty' v-model="value" />
+        <input type="button" value="发送" v-on:click='send' />
+        <div>value 的值是：{{ value }}</div>
+
+        <!-- 引用count -->
+        <div>字数：{{ count }}</div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                value: ''
+            }
+        },
+
+        // 新增方法
+        methods: {
+            send: function() {
+                alert('发送成功！');
+                this.value = ''
+            }
+        },
+
+        // 新增计算属性
+        computed: {
+            count: function()　 {
+                return this.value.length
+            }
+        }
+    })
+</script>
+
+</html>
